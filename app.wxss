@@ -1,0 +1,100 @@
+/* app.wxss - 全局暗黑主题 */
+page {
+  background: #0a0a0a;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+  font-size: 28rpx;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+view, text, image, input, textarea, button, scroll-view, swiper, cover-view, navigator {
+  box-sizing: border-box;
+}
+
+.row { display: flex; flex-direction: row; }
+.col { display: flex; flex-direction: column; }
+.center { display: flex; align-items: center; justify-content: center; }
+.between { display: flex; align-items: center; justify-content: space-between; }
+
+.text-sub { color: #9a9a9a; }
+.text-yellow { color: #f6ff5c; }
+.text-green { color: #b5f25c; }
+.text-red { color: #ff5c5c; }
+.text-blue { color: #5cb8ff; }
+
+.divider {
+  height: 1rpx;
+  background: #262626;
+  width: 100%;
+}
+
+.card {
+  background: #1a1a1a;
+  border-radius: 24rpx;
+  padding: 32rpx;
+}
+
+.btn-primary {
+  background: #f6ff5c;
+  color: #0a0a0a;
+  border-radius: 999rpx;
+  padding: 24rpx 48rpx;
+  font-weight: 600;
+  font-size: 30rpx;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #f6ff5c;
+  border: 2rpx solid #f6ff5c;
+  border-radius: 999rpx;
+  padding: 22rpx 46rpx;
+  font-weight: 600;
+  font-size: 30rpx;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-disabled {
+  opacity: 0.35;
+}
+
+input, textarea {
+  color: #ffffff;
+  background: #1a1a1a;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  width: 100%;
+  font-size: 28rpx;
+}
+
+/* 大数字样式 - 计时器主标题 */
+.big-number {
+  font-family: "Helvetica Neue", "Arial Black", sans-serif;
+  font-weight: 900;
+  font-size: 220rpx;
+  line-height: 1;
+  letter-spacing: -6rpx;
+  color: #0a0a0a;
+}
+
+.medium-number {
+  font-family: "Helvetica Neue", "Arial Black", sans-serif;
+  font-weight: 900;
+  font-size: 140rpx;
+  line-height: 1;
+  letter-spacing: -4rpx;
+  color: #0a0a0a;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #ffffff;
+}

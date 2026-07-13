@@ -1,0 +1,88 @@
+<!-- pages/group/group.wxml -->
+<view class="page">
+
+  <view class="header">
+    <view class="title">随机分组</view>
+    <view class="sub">粘贴报名名单,自动识别男女并均衡分 3 组</view>
+  </view>
+
+  <!-- 智能解析:折叠切换区 -->
+  <view class="roster-toggle" bindtap="onToggleRoster">
+    <view class="roster-toggle-title">📋 粘贴报名名单(自动识别男女)</view>
+    <view class="roster-toggle-arrow">{{showRoster ? '收起 ▲' : '展开 ▼'}}</view>
+  </view>
+
+  <view class="roster-box" wx:if="{{showRoster}}">
+    <textarea
+      class="ta"
+      placeholder="粘贴群接龙/小红书报名文本,自动识别名字和男女"
+      placeholder-class="ph"
+      maxlength="8000"
+      auto-height
+      value="{{rosterText}}"
+      bindinput="onRosterInput"
+      adjust-position="{{true}}"
+    />
+    <view class="roster-bar">
+      <view class="counter">
+        <text class="text-yellow">{{rosterTotal}}</text> 人 · {{rosterStat}}
+      </view>
+      <view class="op">
+        <view class="opbtn" bindtap="onRosterSample">示例</view>
+        <view class="opbtn opbtn-primary" bindtap="onParseRoster">解析并分组</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 平衡分组结果(智能解析) -->
+  <view class="cards" wx:if="{{balancedHasResult}}">
+    <view class="group-card {{item.classKey}}" wx:for="{{balancedGroups}}" wx:for-item="item" wx:key="title"
+          data-idx="{{index}}" bindtap="onTapBalanced" bindlongpress="onLongPressBalanced">
+
+      <view class="card-head">
+        <view class="dot {{item.dotClass}}"></view>
+        <view class="card-title">{{item.title}}</view>
+        <view class="card-stat">{{item.stat}}</view>
+      </view>
+
+      <view class="card-body">
+        <view class="member" wx:for="{{item.members}}" wx:for-item="m" wx:key="name" wx:for-index="mIdx"
+              data-group="{{index}}" data-member="{{mIdx}}"
+              bindtouchstart="onMemberTouchStart" bindtouchmove="onMemberTouchMove" bindtouchend="onMemberTouchEnd">
+          <text class="gender {{m.gc}}">{{m.gs}}</text><text class="mname">{{m.name}}</text>
+        </view>
+        <view class="empty" wx:if="{{!item.members.length}}">— 少人 —</view>
+      </view>
+
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{emptyVisible}}">
+    <view class="empty-tip">展开上方「粘贴报名名单」,粘贴后点击「解析并分组」</view>
+    <view class="empty-tip-sub">3 组自动均衡,智能解析会尽量让每组男女平均</view>
+  </view>
+
+  <!-- 历史抽屉 -->
+  <view class="history" wx:if="{{history.length}}">
+    <view class="history-head">
+      <view class="section-title">最近分组</view>
+      <view class="clear-btn" bindtap="onClearHistory">清空</view>
+    </view>
+    <view class="hist-item" wx:for="{{history}}" wx:for-item="item" wx:key="id">
+      <view class="hist-meta">
+        <text class="text-yellow">{{item.namesCount}}</text> 人
+        · {{item.timeLabel}}
+      </view>
+      <view class="hist-preview">
+        <text wx:for="{{item.preview}}" wx:for-item="g" wx:key="*this" class="hist-pill">
+          {{g.label}} {{g.count}}
+        </text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 拖拽浮层:手指跟手的幽灵标签,松手命中检测后互换 -->
+  <view wx:if="{{dragging}}" class="drag-ghost" style="{{dragging.ghostStyle}}">{{dragging.name}}</view>
+
+</view>

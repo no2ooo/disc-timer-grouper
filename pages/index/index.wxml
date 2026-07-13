@@ -1,0 +1,83 @@
+<!-- pages/index/index.wxml -->
+<view class="page">
+
+  <!-- 顶部:左 设置 / 中 模式名+总时长 / 右 切换模式 -->
+  <view class="topbar">
+    <view class="iconbtn" bindtap="onOpenSetting">
+      <view class="gear">⚙</view>
+    </view>
+    <view class="top-mid">
+      <view class="mode-name">{{modeMeta.name}}</view>
+      <view class="mode-total">{{modeMeta.totalLabel}}</view>
+    </view>
+    <view class="iconbtn" bindtap="onSwitchMode">
+      <view class="gear">↻</view>
+    </view>
+  </view>
+
+  <!-- 倒计时主区:黄/绿大色块 -->
+  <view class="bigblock {{bigBlockClass}}">
+    <view class="phase-name">{{phaseName}}</view>
+    <view class="big-num">{{bigNum}}</view>
+  </view>
+
+  <!-- 次区:阶段信息(绿/红) -->
+  <view class="subblock {{subBlockClass}}">
+    <view class="sub-name">{{subName}}</view>
+    <view class="sub-num">{{subNum}}</view>
+  </view>
+
+  <!-- 控制区 -->
+  <view class="control">
+    <view class="stat-side">
+      <view class="stat-num {{leftStatColorClass}}">{{leftStatVal}}</view>
+      <view class="stat-label">{{leftStatLabel}}</view>
+    </view>
+
+    <view class="playbtn" bindtap="onTogglePlay">
+      <view class="playicon" wx:if="{{running}}">⏸</view>
+      <view class="playicon" wx:else>▶</view>
+    </view>
+
+    <view class="stat-side" wx:if="{{showRightStat}}">
+      <view class="stat-num {{rightStatColorClass}}">{{rightStatVal}}</view>
+      <view class="stat-label">{{rightStatLabel}}</view>
+    </view>
+    <view class="stat-side" wx:else>
+      <view class="stat-num-ghost">·</view>
+      <view class="stat-label">{{rightStatLabel}}</view>
+    </view>
+  </view>
+
+  <!-- 底部说明 / 提示条 -->
+  <view class="hint" wx:if="{{hint}}">{{hint}}</view>
+
+  <!-- 自定义设置面板(替代原生 ActionSheet + Modal) -->
+  <view class="setting-mask" wx:if="{{showSetting}}" bindtap="onCloseSetting">
+    <view class="setting-panel" catchtap="noop">
+      <view class="setting-title">设置</view>
+
+      <view class="setting-row" wx:for="{{settingFields}}" wx:key="key">
+        <view class="setting-label">{{item.label}}</view>
+
+        <view class="setting-inputs" wx:if="{{item.type === 'duration'}}">
+          <input class="setting-input" type="number" value="{{item.min}}" placeholder="{{item.minPh}}" data-key="{{item.key}}" data-field="min" data-index="{{index}}" bindinput="onSettingInput" />
+          <view class="setting-unit">分</view>
+          <input class="setting-input" type="number" value="{{item.sec}}" placeholder="{{item.secPh}}" data-key="{{item.key}}" data-field="sec" data-index="{{index}}" bindinput="onSettingInput" />
+          <view class="setting-unit">秒</view>
+        </view>
+
+        <view class="setting-inputs" wx:if="{{item.type === 'count'}}">
+          <input class="setting-input" type="number" value="{{item.val}}" placeholder="{{item.valPh}}" data-key="{{item.key}}" data-field="val" data-index="{{index}}" bindinput="onSettingInput" />
+          <view class="setting-unit">次</view>
+        </view>
+      </view>
+
+      <view class="setting-actions">
+        <view class="setting-btn setting-btn-yellow" bindtap="onSavePreset">保存为预设</view>
+        <view class="setting-btn setting-btn-dark" bindtap="onCloseSetting">关闭</view>
+      </view>
+    </view>
+  </view>
+
+</view>

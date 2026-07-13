@@ -1,0 +1,55 @@
+<!-- pages/setting/setting.wxml -->
+<view class="page">
+  <view class="header">
+    <view class="title">设置</view>
+  </view>
+
+  <view class="row-card">
+    <view class="row-item">
+      <view class="row-label">声音</view>
+      <switch checked="{{settings.sound}}" bindchange="onChange" data-key="sound" color="#f6ff5c" />
+    </view>
+    <view class="divider" />
+    <view class="row-item">
+      <view class="row-label">振动</view>
+      <switch checked="{{settings.vibrate}}" bindchange="onChange" data-key="vibrate" color="#f6ff5c" />
+    </view>
+    <view class="divider" />
+    <view class="row-item">
+      <view class="row-label">屏幕常亮</view>
+      <switch checked="{{settings.keepScreen}}" bindchange="onChange" data-key="keepScreen" color="#f6ff5c" />
+    </view>
+    <view class="divider" />
+    <view class="row-item">
+      <view class="row-label">闪屏提醒</view>
+      <switch checked="{{settings.nightFlash}}" bindchange="onChange" data-key="nightFlash" color="#f6ff5c" />
+    </view>
+    <view class="divider" />
+    <view class="row-item">
+      <view class="row-label">允许旋转</view>
+      <switch checked="{{settings.rotate}}" bindchange="onChange" data-key="rotate" color="#f6ff5c" />
+    </view>
+  </view>
+
+  <view class="row-card">
+    <view class="row-item">
+      <view class="row-label">关于</view>
+    </view>
+    <view class="divider" />
+    <view class="row-item">
+      <view class="row-label">版本</view>
+      <view class="row-value">v1.0.0</view>
+    </view>
+    <view class="divider" />
+    <view class="row-item sign-row">
+      <view class="row-label row-label-sign">Design by no23</view>
+      <view class="row-value row-value-sign">小红书:129456426</view>
+    </view>
+    <view class="divider" />
+    <view class="row-item" bindtap="onClearAll">
+      <view class="row-label-red">清除全部数据</view>
+    </view>
+  </view>
+
+  <view class="footer">飞盘计时器 + 随机分组 · 纯本地运行</view>
+</view>

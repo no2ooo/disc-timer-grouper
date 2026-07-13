@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "翻页时钟",
+  "navigationBarBackgroundColor": "#0a0a0a",
+  "navigationBarTextStyle": "white",
+  "backgroundColor": "#0a0a0a",
+  "pageOrientation": "auto"
+}

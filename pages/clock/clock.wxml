@@ -1,0 +1,110 @@
+<view class="clock-page {{isLandscape ? 'clock-landscape' : ''}}">
+  <view class="clock-wrapper {{isLandscape ? 'clock-wrapper-landscape' : ''}}" style="transform: scale({{scale}}); transform-origin: center center;">
+    <view class="clock-face">
+      <view class="digit-group">
+        <view class="digit-card">
+          <view class="digit-half digit-top-static">
+            <view class="digit-text digit-text-top">{{digits.hh.curr}}</view>
+          </view>
+          <view class="digit-sep"></view>
+          <view class="digit-half digit-bottom-static">
+            <view class="digit-text digit-text-bottom">{{digits.hh.curr}}</view>
+          </view>
+          <view wx:if="{{digits.hh.anim}}" class="digit-half digit-top-flip animating-top" bindanimationend="onFlipEnd" data-key="hh">
+            <view class="digit-text digit-text-top">{{digits.hh.prev}}</view>
+          </view>
+          <view wx:if="{{digits.hh.anim}}" class="digit-half digit-bottom-flip animating-bottom" bindanimationend="onFlipEnd" data-key="hh">
+            <view class="digit-text digit-text-bottom">{{digits.hh.curr}}</view>
+          </view>
+        </view>
+        <view class="digit-card">
+          <view class="digit-half digit-top-static">
+            <view class="digit-text digit-text-top">{{digits.h.curr}}</view>
+          </view>
+          <view class="digit-sep"></view>
+          <view class="digit-half digit-bottom-static">
+            <view class="digit-text digit-text-bottom">{{digits.h.curr}}</view>
+          </view>
+          <view wx:if="{{digits.h.anim}}" class="digit-half digit-top-flip animating-top" bindanimationend="onFlipEnd" data-key="h">
+            <view class="digit-text digit-text-top">{{digits.h.prev}}</view>
+          </view>
+          <view wx:if="{{digits.h.anim}}" class="digit-half digit-bottom-flip animating-bottom" bindanimationend="onFlipEnd" data-key="h">
+            <view class="digit-text digit-text-bottom">{{digits.h.curr}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="colon">
+        <view class="colon-dot"></view>
+        <view class="colon-dot"></view>
+      </view>
+      <view class="digit-group">
+        <view class="digit-card">
+          <view class="digit-half digit-top-static">
+            <view class="digit-text digit-text-top">{{digits.mm.curr}}</view>
+          </view>
+          <view class="digit-sep"></view>
+          <view class="digit-half digit-bottom-static">
+            <view class="digit-text digit-text-bottom">{{digits.mm.curr}}</view>
+          </view>
+          <view wx:if="{{digits.mm.anim}}" class="digit-half digit-top-flip animating-top" bindanimationend="onFlipEnd" data-key="mm">
+            <view class="digit-text digit-text-top">{{digits.mm.prev}}</view>
+          </view>
+          <view wx:if="{{digits.mm.anim}}" class="digit-half digit-bottom-flip animating-bottom" bindanimationend="onFlipEnd" data-key="mm">
+            <view class="digit-text digit-text-bottom">{{digits.mm.curr}}</view>
+          </view>
+        </view>
+        <view class="digit-card">
+          <view class="digit-half digit-top-static">
+            <view class="digit-text digit-text-top">{{digits.m.curr}}</view>
+          </view>
+          <view class="digit-sep"></view>
+          <view class="digit-half digit-bottom-static">
+            <view class="digit-text digit-text-bottom">{{digits.m.curr}}</view>
+          </view>
+          <view wx:if="{{digits.m.anim}}" class="digit-half digit-top-flip animating-top" bindanimationend="onFlipEnd" data-key="m">
+            <view class="digit-text digit-text-top">{{digits.m.prev}}</view>
+          </view>
+          <view wx:if="{{digits.m.anim}}" class="digit-half digit-bottom-flip animating-bottom" bindanimationend="onFlipEnd" data-key="m">
+            <view class="digit-text digit-text-bottom">{{digits.m.curr}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="colon">
+        <view class="colon-dot"></view>
+        <view class="colon-dot"></view>
+      </view>
+      <view class="digit-group">
+        <view class="digit-card">
+          <view class="digit-half digit-top-static">
+            <view class="digit-text digit-text-top">{{digits.ss.curr}}</view>
+          </view>
+          <view class="digit-sep"></view>
+          <view class="digit-half digit-bottom-static">
+            <view class="digit-text digit-text-bottom">{{digits.ss.curr}}</view>
+          </view>
+          <view wx:if="{{digits.ss.anim}}" class="digit-half digit-top-flip animating-top" bindanimationend="onFlipEnd" data-key="ss">
+            <view class="digit-text digit-text-top">{{digits.ss.prev}}</view>
+          </view>
+          <view wx:if="{{digits.ss.anim}}" class="digit-half digit-bottom-flip animating-bottom" bindanimationend="onFlipEnd" data-key="ss">
+            <view class="digit-text digit-text-bottom">{{digits.ss.curr}}</view>
+          </view>
+        </view>
+        <view class="digit-card">
+          <view class="digit-half digit-top-static">
+            <view class="digit-text digit-text-top">{{digits.s.curr}}</view>
+          </view>
+          <view class="digit-sep"></view>
+          <view class="digit-half digit-bottom-static">
+            <view class="digit-text digit-text-bottom">{{digits.s.curr}}</view>
+          </view>
+          <view wx:if="{{digits.s.anim}}" class="digit-half digit-top-flip animating-top" bindanimationend="onFlipEnd" data-key="s">
+            <view class="digit-text digit-text-top">{{digits.s.prev}}</view>
+          </view>
+          <view wx:if="{{digits.s.anim}}" class="digit-half digit-bottom-flip animating-bottom" bindanimationend="onFlipEnd" data-key="s">
+            <view class="digit-text digit-text-bottom">{{digits.s.curr}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

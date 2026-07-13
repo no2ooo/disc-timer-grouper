@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/clock/clock",
+    "pages/index/index",
+    "pages/group/group",
+    "pages/preset/preset",
+    "pages/setting/setting"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#0a0a0a",
+    "navigationBarTitleText": "飞盘计时",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#0a0a0a",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#9a9a9a",
+    "selectedColor": "#f6ff5c",
+    "backgroundColor": "#0a0a0a",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/clock/clock",
+        "text": "时钟",
+        "iconPath": "assets/tab-clock.png",
+        "selectedIconPath": "assets/tab-clock-active.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "计时",
+        "iconPath": "assets/tab-timer.png",
+        "selectedIconPath": "assets/tab-timer-active.png"
+      },
+      {
+        "pagePath": "pages/group/group",
+        "text": "分组",
+        "iconPath": "assets/tab-group.png",
+        "selectedIconPath": "assets/tab-group-active.png"
+      },
+      {
+        "pagePath": "pages/preset/preset",
+        "text": "我的",
+        "iconPath": "assets/tab-me.png",
+        "selectedIconPath": "assets/tab-me-active.png"
+      },
+      {
+        "pagePath": "pages/setting/setting",
+        "text": "设置",
+        "iconPath": "assets/tab-set.png",
+        "selectedIconPath": "assets/tab-set-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

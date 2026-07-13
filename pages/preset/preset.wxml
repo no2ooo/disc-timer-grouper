@@ -1,0 +1,37 @@
+<!-- pages/preset/preset.wxml -->
+<view class="page">
+  <view class="header">
+    <view class="title">我的</view>
+    <view class="sub">保存的训练预设 + 使用说明</view>
+  </view>
+
+  <!-- 使用说明卡 -->
+  <view class="card">
+    <view class="section-title">使用说明</view>
+    <view class="line">· 在「计时」选择模式后点齿轮图标可调整参数,并保存为预设</view>
+    <view class="line">· 「分组」直接输入名字 → 一键随机分成 3 组,余数自动并入最后一组</view>
+    <view class="line">· 「设置」可调整声音、振动、屏幕常亮等偏好</view>
+  </view>
+
+  <!-- 预设列表 -->
+  <view class="section-bar">
+    <view class="section-title">训练预设</view>
+    <view class="count-tag">{{presets.length}} 条</view>
+  </view>
+
+  <view class="empty" wx:if="{{!presets.length}}">
+    <view class="empty-tip">还没有预设</view>
+    <view class="empty-tip-sub">在计时页调整参数后选择「保存为预设」</view>
+  </view>
+
+  <view class="preset-list">
+    <view class="preset-item" wx:for="{{presets}}" wx:key="id" data-id="{{item.id}}" bindtap="onApplyPreset" bindlongpress="onLongPressPreset">
+      <view class="preset-head">
+        <view class="preset-name">{{item.name}}</view>
+        <view class="preset-type">{{item.typeLabel}}</view>
+      </view>
+      <view class="preset-params">{{item.summary}}</view>
+      <view class="preset-time">{{item.timeLabel}}</view>
+    </view>
+  </view>
+</view>
